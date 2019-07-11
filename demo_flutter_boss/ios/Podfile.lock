@@ -1,0 +1,47 @@
+PODS:
+  - barcode_scan (0.0.1):
+    - Flutter
+    - MTBBarcodeScanner
+  - Flutter (1.0.0)
+  - FMDB (2.7.5):
+    - FMDB/standard (= 2.7.5)
+  - FMDB/standard (2.7.5)
+  - MTBBarcodeScanner (5.0.8)
+  - path_provider (0.0.1):
+    - Flutter
+  - sqflite (0.0.1):
+    - Flutter
+    - FMDB (~> 2.7.2)
+
+DEPENDENCIES:
+  - barcode_scan (from `/Users/yuqin/flutter/.pub-cache/hosted/pub.dartlang.org/barcode_scan-1.0.0/ios`)
+  - Flutter (from `/Users/yuqin/flutter/bin/cache/artifacts/engine/ios`)
+  - path_provider (from `/Users/yuqin/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider-1.1.2/ios`)
+  - "sqflite (from `/Users/yuqin/flutter/.pub-cache/hosted/pub.dartlang.org/sqflite-1.1.6+1/ios`)"
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - FMDB
+    - MTBBarcodeScanner
+
+EXTERNAL SOURCES:
+  barcode_scan:
+    :path: "/Users/yuqin/flutter/.pub-cache/hosted/pub.dartlang.org/barcode_scan-1.0.0/ios"
+  Flutter:
+    :path: "/Users/yuqin/flutter/bin/cache/artifacts/engine/ios"
+  path_provider:
+    :path: "/Users/yuqin/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider-1.1.2/ios"
+  sqflite:
+    :path: "/Users/yuqin/flutter/.pub-cache/hosted/pub.dartlang.org/sqflite-1.1.6+1/ios"
+
+SPEC CHECKSUMS:
+  barcode_scan: 8288e70cb430072003bce2c794a1431e7adbcb4d
+  Flutter: 9d0fac939486c9aba2809b7982dfdbb47a7b0296
+  FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
+  MTBBarcodeScanner: 5b97f10a037e2560ff104da413343c5ce9413911
+  path_provider: 09407919825bfe3c2deae39453b7a5b44f467873
+  sqflite: d1612813fa7db7c667bed9f1d1b508deffc56999
+
+PODFILE CHECKSUM: ccf6b34e3d8bed3672e745db6d4740b243ed1e45
+
+COCOAPODS: 1.5.3

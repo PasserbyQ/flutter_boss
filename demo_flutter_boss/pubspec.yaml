@@ -26,6 +26,7 @@ dependencies:
   dio: ^2.1.11
   cached_network_image: ^1.0.0
   barcode_scan: ^1.0.0
+  flutter_easyrefresh: ^1.2.7
   
 dev_dependencies:
   flutter_test:

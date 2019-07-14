@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:barcode_scan/barcode_scan.dart';
+import 'package:flutter_easyrefresh/easy_refresh.dart';
 
 import 'job_helper.dart';
 
@@ -21,37 +22,85 @@ class MyPage extends StatefulWidget {
 class _MyPageState extends State<MyPage> {
   String barcode = "";
 
+
+  double hei = 0;
+
+  GlobalKey<RefreshHeaderState> _headerKey =
+      new GlobalKey<RefreshHeaderState>();
+
+  ScrollController _controller = new ScrollController();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _controller.addListener(() {
+      if (_controller.offset < 0) {
+        setState(() {
+          this.hei = -(_controller.offset) + 10;
+        });
+      } else {
+        setState(() {
+          this.hei = 0;
+        });
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return new Scaffold(
-      appBar: new AppBar(
-        elevation: 0.0,
-        centerTitle: true,
-        title: new Text('我的',
-            style: new TextStyle(fontSize: 20.0, color: Colors.white)),
-        actions: <Widget>[
-          CupertinoButton(
-            child: Image.asset('images/ic_main_tab_find_nor.png'),
-            onPressed: () {
-              scan();
-            },
-          )
-        ],
-      ),
-      body: CustomScrollView(
-        slivers: <Widget>[
-          SliverToBoxAdapter(
-            child: Column(
-              children: <Widget>[_createHeadView(), JobHelper()],
-            ),
+        appBar: new AppBar(
+          elevation: 0.0,
+          centerTitle: true,
+          title: new Text('我的',
+              style: new TextStyle(fontSize: 20.0, color: Colors.white)),
+          actions: <Widget>[
+            CupertinoButton(
+              child: Image.asset('images/ic_main_tab_find_nor.png'),
+              onPressed: () {
+                scan();
+              },
+            )
+          ],
+        ),
+        body: _createBody());
+  }
+
+  Widget _createBody() {
+    return Stack(
+      children: <Widget>[
+        Container(
+          height: hei,
+          child: Column(
+            children: <Widget>[
+              Expanded(
+                flex: 1,
+                child: Container(
+                  color: Theme.of(context).primaryColor,
+                ),
+              ),
+              
+            ],
           ),
-          SliverFixedExtentList(
-            delegate: SliverChildBuilderDelegate(_buildListItem, childCount: 2),
-            itemExtent: 50.0,
-          )
-        ],
-      ),
+        ),
+        CustomScrollView(
+          controller: _controller,
+          slivers: <Widget>[
+            SliverToBoxAdapter(
+              child: Column(
+                children: <Widget>[_createHeadView(), JobHelper()],
+              ),
+            ),
+            SliverFixedExtentList(
+              delegate:
+                  SliverChildBuilderDelegate(_buildListItem, childCount: 10),
+              itemExtent: 50.0,
+            )
+          ],
+        )
+      ],
     );
   }
 
@@ -123,7 +172,7 @@ class _MyPageState extends State<MyPage> {
   Widget _buildListItem(BuildContext context, int index) {
     return new MyCell(onPressed: () {
       Events.nativePrint().then((info) {
-      Toast.show(info, context);
+        Toast.show(info, context);
       });
     });
   }

@@ -79,7 +79,10 @@ class _TabsState extends State<Tabs> {
     // TODO: implement build
     return new Scaffold(
       appBar: getAppBar(),
-      body: pages[_tabIndex],
+      body: IndexedStack(
+        children: pages,
+        index: _tabIndex,
+      ),
       bottomNavigationBar: new CupertinoTabBar(
         items: [
           new BottomNavigationBarItem(
@@ -91,7 +94,7 @@ class _TabsState extends State<Tabs> {
           new BottomNavigationBarItem(
               icon: getTabIcon(3), title: getTabTitle(3)),
         ],
-        currentIndex: _tabIndex,
+        // currentIndex: _tabIndex,
         onTap: (index) {
           setState(() {
             _tabIndex = index;

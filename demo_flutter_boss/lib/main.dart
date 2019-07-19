@@ -1,6 +1,7 @@
 import 'package:demo_flutter_boss/Tabs.dart';
 import 'package:demo_flutter_boss/common/config/config.dart';
 import 'package:demo_flutter_boss/routers/Routes.dart';
+import 'package:demo_flutter_boss/widgets/splash_page.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -22,9 +23,10 @@ class MyApp extends StatelessWidget {
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
         primaryColor: Config.GREEN_COLOR,
+        iconTheme: IconThemeData(color: Colors.white)
       ),
       routes: routes,
-      home: Tabs(),
+      home: SplashPage()//Tabs(),
     );
   }
 }

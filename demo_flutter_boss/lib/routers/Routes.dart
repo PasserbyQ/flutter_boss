@@ -1,11 +1,14 @@
+import 'package:demo_flutter_boss/tabs.dart';
+import 'package:demo_flutter_boss/widgets/company/company_detail_page.dart';
 import 'package:demo_flutter_boss/widgets/job/job_detail_page.dart';
 import 'package:flutter/material.dart';
 
-
-
 // 配置路由
 final routes = {
-    '/jobDetail': (context) => JobDetailPage(),
+  '/main': (context) => Tabs(),
+  '/jobDetail': (context) => JobDetailPage(),
+  '/companyDetail': (context) => CompanyDetailPage(),
+  
 };
 
 //监听处理

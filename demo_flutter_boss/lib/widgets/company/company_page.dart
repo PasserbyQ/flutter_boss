@@ -1,5 +1,8 @@
+import 'package:demo_flutter_boss/blocs/bloc_increment.dart';
+import 'package:demo_flutter_boss/blocs/bloc_provider.dart';
 import 'package:demo_flutter_boss/common/widget/toast.dart';
 import 'package:demo_flutter_boss/widgets/company/company_cell.dart';
+import 'package:demo_flutter_boss/widgets/company/company_detail_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -33,7 +36,16 @@ class _CompanyPageState extends State<CompanyPage> {
     return new ListView.builder(
         itemCount: 2,
         itemBuilder: (context, index) {
-          return CompanyCell();
+          return CompanyCell(onPressed: () {
+            Navigator.push(context,
+                new CupertinoPageRoute<void>(builder: (ctx) =>
+              BlocProvider<IncrementBloc>(
+                bloc: IncrementBloc(),
+                child: CompanyDetailPage(),
+              )
+            ));
+            // Navigator.pushNamed(context, '/companyDetail');
+          });
         });
   }
 }

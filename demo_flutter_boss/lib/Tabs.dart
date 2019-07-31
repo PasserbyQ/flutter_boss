@@ -1,7 +1,7 @@
 import 'package:demo_flutter_boss/common/config/config.dart';
 import 'package:demo_flutter_boss/widgets/company/company_page.dart';
 import 'package:demo_flutter_boss/widgets/job/job_page.dart';
-import 'package:demo_flutter_boss/widgets/message/MessagePage.dart';
+import 'package:demo_flutter_boss/widgets/message/message_page.dart';
 import 'package:demo_flutter_boss/widgets/my/my_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

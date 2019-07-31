@@ -1,4 +1,4 @@
-import 'package:demo_flutter_boss/widgets/message/MessageCell.dart';
+import 'package:demo_flutter_boss/widgets/message/message_cell.dart';
 import 'package:flutter/material.dart';
 
 class MessagePage extends StatefulWidget {
@@ -29,7 +29,9 @@ Widget _createListView(BuildContext context) {
   return ListView.builder(
     itemCount: 2,
     itemBuilder: (context,index) {
-        return new MessageCell();
+        return new MessageCell(onPressed: () {
+          Navigator.pushNamed(context, 'chat');
+        });
     },
   );
 }
